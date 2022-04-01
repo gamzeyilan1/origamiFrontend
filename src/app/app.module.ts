@@ -4,10 +4,15 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {Routes, RouterModule} from "@angular/router";
-import {TaskModuleModule} from "./task-module/task-module.module";
-import {TaskComponent} from "./task-module/task/task.component";
+import {HomeModule} from "./home/home.module";
+import {NavbarModule} from "./shared/base-structure/navbar/navbar.module";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-const routes: Routes = [{ path: 'task-module', loadChildren: () => import('./task-module/task-module.module').then(m => m.TaskModuleModule) }];
+
+const routes: Routes = [
+  { path: 'tasks', loadChildren: () => import('./tasks/tasks.module').then(m => m.TasksModule) },
+  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+  { path: 'navbar', loadChildren: () => import('./shared/base-structure/navbar/navbar.module').then(m => m.NavbarModule) }];
 
 @NgModule({
   declarations: [
@@ -19,7 +24,9 @@ const routes: Routes = [{ path: 'task-module', loadChildren: () => import('./tas
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    TaskModuleModule
+    HomeModule,
+    NavbarModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

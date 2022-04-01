@@ -31,6 +31,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -57,6 +58,14 @@
               ],
               "outputHashing": "all"
             },
+            "tr": {
+              "aot": true,
+              "outputPath": "locale/messages.tr.xlf",
+              "i18nFile": "locale/messages.tr.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "tr",
+              "i18nMissingTranslation": "error"
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -73,6 +82,9 @@
           "configurations": {
             "production": {
               "browserTarget": "origamiFrontend:build:production"
+            },
+            "tr": {
+              "browserTarget": "i18ntranslate:build:tr"
             },
             "development": {
               "browserTarget": "origamiFrontend:build:development"
